@@ -15,56 +15,7 @@ import {
   FiCpu
 } from "react-icons/fi";
 
-const featuredProjects = [
-  {
-    name: "Pumpmas",
-    type: "Web",
-    desc: "Decentralized Finance (DeFi) Web App built for a memecoin on the Ethereum blockchain. Highlights tokenomics and roadmap.",
-    tags: ["React", "Web3", "Tailwind"],
-    image: "/Pumpmas.png",
-    fullWidth: true
-  },
-  {
-    name: "PeerBeam",
-    type: "Web",
-    desc: "A modern, real-time file transfer web application designed to facilitate quick and secure sharing of files.",
-    tags: ["Next.js", "WebSockets", "Node.js"],
-    image: "/peerBeam.png",
-    fullWidth: false
-  },
-  {
-    name: "Codeham Charity",
-    type: "Web",
-    desc: "A comprehensive, feature-rich website developed for CodeHam Charity to facilitate donations and awareness.",
-    tags: ["React", "Tailwind CSS"],
-    image: "/codeham_charity.png",
-    fullWidth: false
-  },
-  {
-    name: "Gladtidings",
-    type: "Mobile", // Just to have categories
-    desc: "A landing page clone demonstrating strong front-end replication and design skills for data services.",
-    tags: ["HTML", "CSS", "JS"],
-    image: "/gladtidings.png",
-    fullWidth: true
-  },
-  {
-    name: "The Tomio",
-    type: "Web",
-    desc: "Built for a memecoin on the Solana (SOL) blockchain. Demonstrates adaptability to different blockchain ecosystems.",
-    tags: ["Solana", "React"],
-    image: "/the_tomio.png",
-    fullWidth: false
-  },
-  {
-    name: "MSPAINTIFY",
-    type: "Web",
-    desc: "A flashy crypto token landing page with an integrated AI image generator.",
-    tags: ["Next.js", "OpenAI"],
-    image: "/mspaintify-vercel-app.png",
-    fullWidth: false
-  }
-];
+import { featuredProjects } from "@/data/projects";
 
 const techStack = {
   "Frontend": [
@@ -150,27 +101,60 @@ export default function Home() {
             {filteredProjects.map((project, idx) => {
               if (project.fullWidth) {
                 return (
+                  <Link href={`/projects/${project.slug}`} key={project.name} className="col-span-1 md:col-span-2 group">
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="flex flex-col md:flex-row bg-[var(--card-bg)] rounded-[32px] p-4 md:p-8 border border-[var(--border-color)] transition-all hover:border-[var(--text-color)]/30 hover:scale-[1.01] gap-8 items-center cursor-pointer"
+                    >
+                      <div className="w-full md:w-3/5 h-64 md:h-96 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 relative flex items-center justify-center p-4">
+                        <Image 
+                          src={project.image} 
+                          alt={project.name}
+                          fill
+                          className="object-contain rounded-xl shadow-lg transition-transform group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="w-full md:w-2/5 flex flex-col justify-center p-4">
+                        <div className="flex items-center gap-2 mb-4">
+                          <span className="text-xs tracking-widest uppercase font-bold text-[var(--text-color)]/50">{project.type} APP</span>
+                        </div>
+                        <h3 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "var(--font-chillax)" }}>{project.name}</h3>
+                        <p className="text-[var(--text-color)]/70 mb-8 text-lg leading-relaxed">{project.desc}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map(tag => (
+                            <span key={tag} className="text-xs uppercase tracking-wider font-semibold px-4 py-2 border border-[var(--border-color)] rounded-full">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Link>
+                );
+              }
+
+              return (
+                <Link href={`/projects/${project.slug}`} key={project.name} className="col-span-1 group">
                   <motion.div 
-                    key={project.name}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="col-span-1 md:col-span-2 group flex flex-col md:flex-row bg-[var(--card-bg)] rounded-[32px] p-4 md:p-8 border border-[var(--border-color)] transition-colors gap-8 items-center"
+                    transition={{ delay: 0.1 }}
+                    className="flex flex-col h-full bg-[var(--card-bg)] rounded-[32px] p-6 border border-[var(--border-color)] transition-all hover:border-[var(--text-color)]/30 hover:scale-[1.02] cursor-pointer"
                   >
-                    <div className="w-full md:w-3/5 h-64 md:h-96 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 relative flex items-center justify-center p-4">
+                    <div className="w-full h-64 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 mb-8 relative flex items-center justify-center p-4">
                       <Image 
                         src={project.image} 
                         alt={project.name}
                         fill
-                        className="object-contain rounded-xl shadow-lg"
+                        className="object-contain rounded-xl shadow-md transition-transform group-hover:scale-105"
                       />
                     </div>
-                    <div className="w-full md:w-2/5 flex flex-col justify-center p-4">
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className="text-xs tracking-widest uppercase font-bold text-[var(--text-color)]/50">{project.type} APP</span>
-                      </div>
-                      <h3 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "var(--font-chillax)" }}>{project.name}</h3>
-                      <p className="text-[var(--text-color)]/70 mb-8 text-lg leading-relaxed">{project.desc}</p>
+                    <div className="flex flex-col flex-grow px-2">
+                      <h3 className="text-3xl font-extrabold mb-3" style={{ fontFamily: "var(--font-chillax)" }}>{project.name}</h3>
+                      <p className="text-[var(--text-color)]/70 mb-8 flex-grow leading-relaxed">{project.desc}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map(tag => (
                           <span key={tag} className="text-xs uppercase tracking-wider font-semibold px-4 py-2 border border-[var(--border-color)] rounded-full">
@@ -180,38 +164,7 @@ export default function Home() {
                       </div>
                     </div>
                   </motion.div>
-                );
-              }
-
-              return (
-                <motion.div 
-                  key={project.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="col-span-1 group flex flex-col bg-[var(--card-bg)] rounded-[32px] p-6 border border-[var(--border-color)] transition-colors"
-                >
-                  <div className="w-full h-64 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 mb-8 relative flex items-center justify-center p-4">
-                    <Image 
-                      src={project.image} 
-                      alt={project.name}
-                      fill
-                      className="object-contain rounded-xl shadow-md"
-                    />
-                  </div>
-                  <div className="flex flex-col flex-grow px-2">
-                    <h3 className="text-3xl font-extrabold mb-3" style={{ fontFamily: "var(--font-chillax)" }}>{project.name}</h3>
-                    <p className="text-[var(--text-color)]/70 mb-8 flex-grow leading-relaxed">{project.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="text-xs uppercase tracking-wider font-semibold px-4 py-2 border border-[var(--border-color)] rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
+                </Link>
               );
             })}
           </div>
