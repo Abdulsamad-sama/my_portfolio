@@ -1,125 +1,111 @@
 "use client";
-import { Button } from "@/components/buttons/Button";
-import Image from "next/image";
-import React from "react";
-import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { RiMailSendLine } from "react-icons/ri";
 
-const contact = () => {
-  // Function to handle form submission
-  // This function will open the user's email client with pre-filled details
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const message = e.target.message.value;
-    // Prevent spamming by disabling the button after submit
-    if (e.target.submitted) return;
-    e.target.submitted = true;
-    setTimeout(() => {
-      e.target.submitted = false;
-    }, 3000);
+import { motion } from "framer-motion";
+import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiCopy } from "react-icons/fi";
+import { useState } from "react";
 
-    const subject = encodeURIComponent(
-      `Contact from your portfolio website: ${name}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`
-    );
-    window.location.href = `mailto:hamzatabdulsamad34@gmail.com?subject=${subject}&body=${body}`;
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("contact@abdulsamad.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="flex flex-col gap-3 mt-16 relative">
-      <h1 className="text-4xl font-bold text-center mb-6">
-        Get in touch with us
-      </h1>
+    <>
+      <section className="py-24 max-w-4xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.2 }}
+        >
+          <div className="text-center mb-16">
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-6" style={{ fontFamily: "var(--font-chillax)" }}>Contact.</h1>
+            <p className="text-[var(--text-color)]/60 text-xl font-light">Have a project in mind? Let's work together.</p>
+          </div>
 
-      <div className="flex flex-col md:flex-row gap-3">
-        <div className="flex-1 mr-3 flex flex-col justify-center gap-4 p-6">
-          <h2 className="text-3xl font-bold text-[#53c2ab]">
-            Let’s build something amazing together
-          </h2>
-          <p className="mt-4">
-            We are always open to discussing new projects, creative ideas, or
-            opportunities to be part of your visions.
-          </p>
-          <p className="mb-2">
-            Feel free to reach out and start a conversation!
-          </p>
+          <form className="flex flex-col gap-8 mb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">First Name</label>
+                <input 
+                  type="text" 
+                  className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
+                  placeholder="John"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Last Name</label>
+                <input 
+                  type="text" 
+                  className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
+                  placeholder="Doe"
+                  required
+                />
+              </div>
+            </div>
 
-          <div className=" space-x-4">
-            <a
-              href="https://https://github.com/Abdulsamad-sama"
-              className="text-[#53c2ab] hover:underline text-xl"
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Email</label>
+              <input 
+                type="email" 
+                className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Subject</label>
+              <input 
+                type="text" 
+                className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
+                placeholder="Project Inquiry"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Message</label>
+              <textarea 
+                className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors resize-none h-32 placeholder:text-[var(--text-color)]/20"
+                placeholder="Tell me about your project..."
+                required
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              className="mt-8 px-8 py-5 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-[1.02] transition-transform w-full md:w-auto self-end"
             >
-              <FaGithub className="inline mr-2" />
+              Send Message
+            </button>
+          </form>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button 
+              onClick={handleCopy}
+              className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium"
+            >
+              <FiMail size={16} />
+              {copied ? "Copied!" : "contact@abdulsamad.com"}
+              <FiCopy size={14} className="ml-2 text-[var(--text-color)]/40" />
+            </button>
+            <a href="https://github.com/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
+              <FiGithub size={16} /> GitHub
             </a>
-            <a
-              href="https://wa.me/2347056232049"
-              className="text-[#53c2ab] hover:underline text-xl"
-            >
-              <FaWhatsapp className="inline mr-2" />
+            <a href="https://linkedin.com/in/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
+              <FiLinkedin size={16} /> LinkedIn
             </a>
-            <a
-              href="https://linkedin.com/in/hamzat-abdulsamad"
-              className="text-[#53c2ab] hover:underline text-xl"
-            >
-              <FaLinkedin className="inline mr-2" />
-            </a>
-            <a
-              href="https://x.com/coolham"
-              className="text-[#53c2ab] hover:underline text-xl"
-            >
-              <FaXTwitter className="inline mr-2" />
+            <a href="https://twitter.com/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
+              <FiTwitter size={16} /> Twitter
             </a>
           </div>
-        </div>
-
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col flex-1 gap-2 relative"
-          autoComplete="off"
-        >
-          <input
-            type="text"
-            id="name"
-            name="name"
-            autoFocus
-            autoComplete="off"
-            autoCapitalize="on"
-            placeholder="Name"
-            className=" border rounded text-[#bbb] p-3  "
-            required
-          />
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            autoComplete="off"
-            placeholder="Email"
-            className=" border rounded text-[#bbb] p-3"
-            required
-          />
-
-          <textarea
-            id="message"
-            name="message"
-            autoComplete="off"
-            autoCapitalize="on"
-            placeholder="Message"
-            className=" border capitalize resize-none rounded text-[#bbb] p-3 "
-            rows={8}
-            required
-          />
-
-          <Button btnName={"Email me"} btnUrl={"#"} type="submit" />
-        </form>
-      </div>
-    </div>
+        </motion.div>
+      </section>
+    </>
   );
-};
-
-export default contact;
+}

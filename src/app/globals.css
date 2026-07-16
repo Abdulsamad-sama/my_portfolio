@@ -1,14 +1,56 @@
 @import "tailwindcss";
-@layer utilities {
-  @keyframes gradient-move {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
+
+@theme {
+  --color-dark-bg: #0a0a0a;
+  --color-dark-card: #141414;
+  --color-dark-border: #2a2a2a;
+  
+  --color-light-bg: #f9f9f9;
+  --color-light-card: #ffffff;
+  --color-light-border: #e5e5e5;
+
+  --font-chillax: "Chillax", sans-serif;
+  --font-lexend: "Lexend", sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg-color: var(--color-light-bg);
+    --text-color: #111111;
+    --card-bg: var(--color-light-card);
+    --border-color: var(--color-light-border);
   }
-  .animate-gradient-move {
-    animation: gradient-move 2s linear infinite;
+
+  .dark {
+    --bg-color: var(--color-dark-bg);
+    --text-color: #ededed;
+    --card-bg: var(--color-dark-card);
+    --border-color: var(--color-dark-border);
   }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-lexend);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-chillax);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
 }

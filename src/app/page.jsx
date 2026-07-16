@@ -1,309 +1,246 @@
 "use client";
-import { Button, AnchorTag } from "@/components/buttons/Button";
-import Image from "next/image";
-import Typed from "typed.js";
-import { useEffect, useRef } from "react";
-import Link from "next/link";
-// import { Home, Zap, Code, Menu } from 'lucide-react';
 
-const techStack = [
-  "JavaScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "HTML5",
-  "CSS3",
-  "Tailwind CSS",
-  "Git",
-  "GitHub",
-  "Figma",
-  "Python",
-  "MATLAB",
-  "Microsoft Office",
-  "Agentic AI",
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { 
+  FiCode, 
+  FiSmartphone, 
+  FiDatabase, 
+  FiTool,
+  FiBox,
+  FiGlobe,
+  FiTerminal,
+  FiCpu
+} from "react-icons/fi";
+
+const featuredProjects = [
+  {
+    name: "Pumpmas",
+    type: "Web",
+    desc: "Decentralized Finance (DeFi) Web App built for a memecoin on the Ethereum blockchain. Highlights tokenomics and roadmap.",
+    tags: ["React", "Web3", "Tailwind"],
+    image: "/Pumpmas.png",
+    fullWidth: true
+  },
+  {
+    name: "PeerBeam",
+    type: "Web",
+    desc: "A modern, real-time file transfer web application designed to facilitate quick and secure sharing of files.",
+    tags: ["Next.js", "WebSockets", "Node.js"],
+    image: "/peerBeam.png",
+    fullWidth: false
+  },
+  {
+    name: "Codeham Charity",
+    type: "Web",
+    desc: "A comprehensive, feature-rich website developed for CodeHam Charity to facilitate donations and awareness.",
+    tags: ["React", "Tailwind CSS"],
+    image: "/codeham_charity.png",
+    fullWidth: false
+  },
+  {
+    name: "Gladtidings",
+    type: "Mobile", // Just to have categories
+    desc: "A landing page clone demonstrating strong front-end replication and design skills for data services.",
+    tags: ["HTML", "CSS", "JS"],
+    image: "/gladtidings.png",
+    fullWidth: true
+  },
+  {
+    name: "The Tomio",
+    type: "Web",
+    desc: "Built for a memecoin on the Solana (SOL) blockchain. Demonstrates adaptability to different blockchain ecosystems.",
+    tags: ["Solana", "React"],
+    image: "/the_tomio.png",
+    fullWidth: false
+  },
+  {
+    name: "MSPAINTIFY",
+    type: "Web",
+    desc: "A flashy crypto token landing page with an integrated AI image generator.",
+    tags: ["Next.js", "OpenAI"],
+    image: "/mspaintify-vercel-app.png",
+    fullWidth: false
+  }
 ];
 
+const techStack = {
+  "Frontend": [
+    { name: "React", icon: FiBox },
+    { name: "Next.js", icon: FiGlobe },
+    { name: "Tailwind CSS", icon: FiCode },
+    { name: "HTML/CSS", icon: FiCode }
+  ],
+  "Mobile": [
+    { name: "React Native", icon: FiSmartphone },
+    { name: "Expo", icon: FiSmartphone }
+  ],
+  "Backend": [
+    { name: "Node.js", icon: FiTerminal },
+    { name: "Express", icon: FiTerminal },
+    { name: "MongoDB", icon: FiDatabase },
+    { name: "Python", icon: FiTerminal }
+  ],
+  "Tools & Others": [
+    { name: "Git & GitHub", icon: FiTool },
+    { name: "Figma", icon: FiTool },
+    { name: "Agentic AI", icon: FiCpu },
+    { name: "MATLAB", icon: FiBox }
+  ]
+};
+
 export default function Home() {
-  const typedElementRef = useRef(null);
+  const [filter, setFilter] = useState("All");
 
-  useEffect(() => {
-    if (typedElementRef.current) {
-      const typed = new Typed(typedElementRef.current, {
-        strings: [
-          "A Software Developer",
-          "A Computer Engineer",
-          "A Tech Enthusiast",
-        ],
-        typeSpeed: 50,
-        loop: true,
-      });
-
-      return () => {
-        typed.destroy();
-      };
-    }
-  }, []);
+  const filteredProjects = filter === "All" 
+    ? featuredProjects 
+    : featuredProjects.filter(p => p.type === filter);
 
   return (
-    <div className="mt-16">
-      <div className="flex flex-col-reverse sm:flex-row items-center gap-7 px-4 md:px-12 py-8">
-        <main className="w-full md:w-1/2 flex flex-col text-center md:text-left gap-2">
-          <h1 className="text-3xl sm:text-4xl text-nowrap text-left md:text-5xl font-extrabold bg-gradient-to-r from-[#53c2ab] to-indigo-300 text-transparent bg-clip-text mr-1.5">
-            <span className="lg:inline block">Hi,</span> I’m Abdulsamad
+    <>
+      
+      {/* Hero Section */}
+      <section className="min-h-[85vh] flex flex-col justify-center items-center text-center gap-6 mt-12 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.2 }} // Wait for preloader
+          className="max-w-4xl flex flex-col items-center"
+        >
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 leading-tight" style={{ fontFamily: "var(--font-chillax)" }}>
+            Hi, I&apos;m Abdulsamad.
           </h1>
-
-          <div className="text-left">
-            <span
-              ref={typedElementRef}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-nowrap text-[#53c2ab] mt-2"
-            ></span>
-          </div>
-
-          <p className="pb-3 text-base text-justify sm:text-lg md:text-xl">
-            Who specializing in building exceptional digital experiences.
-            Currently, I’m focused on building accessible, human-centered
-            products at Upstatement.
+          <p className="text-xl md:text-2xl text-[var(--text-color)]/70 leading-relaxed font-light mb-10 max-w-3xl">
+            I build and ship full-stack web and software applications using modern technologies. 
+            Specializing in creating exceptional digital experiences, I combine deep technical 
+            skills with a strong focus on collaboration and user-centered design.
           </p>
 
-          <div className="mb-4 ">
-            {techStack.map((tech, index) => (
-              <span
-                key={index}
-                className="inline-block  bg-gradient-to-r from-[#53c2ab] to-[#bbb] text-gray-800 text-sm font-medium px-3 py-1 rounded-full mr-2 mb-2"
+          <Link 
+            href="mailto:contact@abdulsamad.com" 
+            className="px-10 py-5 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform shadow-lg shadow-black/5 dark:shadow-white/5"
+          >
+            Get In Touch
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-24 border-t border-[var(--border-color)]">
+        <div className="flex flex-col items-center mb-16">
+          <h2 className="text-5xl font-extrabold mb-8" style={{ fontFamily: "var(--font-chillax)" }}>All Projects.</h2>
+          <div className="flex items-center gap-2 p-1 bg-[var(--border-color)] rounded-full">
+            {["All", "Web", "Mobile"].map(f => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${filter === f ? 'bg-[var(--card-bg)] shadow-sm' : 'text-[var(--text-color)]/60 hover:text-[var(--text-color)]'}`}
               >
-                {tech}
-              </span>
+                {f}
+              </button>
             ))}
           </div>
-
-          <AnchorTag btnName={"See My Works"} btnUrl={"/portfolio"} />
-
-          <a
-            href="/Abdulsamad_Hamzat_CV.pdf"
-            download
-            className="mt-4 text-[#53c2ab] hover:underline text-lg text-left"
-          >
-            Download CV
-          </a>
-        </main>
-        <div className="w-full md:w-1/2 flex justify-center">
-          <div className="relative shadow-md shadow-gray-400 rounded-full overflow-hidden">
-            <Image
-              src={"/abdulsamad.jpg"}
-              // fill={true}
-              width={450}
-              height={200}
-              alt="A picture of Abdulsamad Hamzat"
-              className=" animate-pulse object-cover"
-              // sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
         </div>
-      </div>
 
-      {/* About */}
-      <section className="mt-20 mb-10 px-4 md:px-12 py-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-left text-[#53c2ab] mb-8">
-          About
-        </h2>
+        <div className="flex flex-col gap-12 max-w-6xl mx-auto">
+          {/* We will render full width cards and grid cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {filteredProjects.map((project, idx) => {
+              if (project.fullWidth) {
+                return (
+                  <motion.div 
+                    key={project.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="col-span-1 md:col-span-2 group flex flex-col md:flex-row bg-[var(--card-bg)] rounded-[32px] p-4 md:p-8 border border-[var(--border-color)] transition-colors gap-8 items-center"
+                  >
+                    <div className="w-full md:w-3/5 h-64 md:h-96 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 relative flex items-center justify-center p-4">
+                      <Image 
+                        src={project.image} 
+                        alt={project.name}
+                        fill
+                        className="object-contain rounded-xl shadow-lg"
+                      />
+                    </div>
+                    <div className="w-full md:w-2/5 flex flex-col justify-center p-4">
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="text-xs tracking-widest uppercase font-bold text-[var(--text-color)]/50">{project.type} APP</span>
+                      </div>
+                      <h3 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "var(--font-chillax)" }}>{project.name}</h3>
+                      <p className="text-[var(--text-color)]/70 mb-8 text-lg leading-relaxed">{project.desc}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="text-xs uppercase tracking-wider font-semibold px-4 py-2 border border-[var(--border-color)] rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              }
 
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1 md:border-r-2 pr-4">
-            <h2 className="text-2xl font-bold mb-5">Who we are.</h2>
-            <p className="mb-3 text-justify">
-              We are a passionate and purpose-driven software development
-              practice led by Abdulsamad Hamzat, a developer committed to
-              delivering clean, efficient, and impactful technology solutions.
-              With a background in Computer Engineering and hands-on experience
-              in both technical training and software development, we combine
-              deep technical skills with a strong focus on collaboration,
-              problem-solving, and user-centered design. We believe in
-              continuous learning, knowledge sharing, and building tools that
-              solve real-world problems. Whether it's leading peer tutorials,
-              training professionals on productivity software, or contributing
-              to community projects, we approach every challenge with integrity,
-              curiosity, and a commitment to excellence.
-            </p>
-          </div>
-          <div className="flex-1">
-            <h2 className="text-2xl font-bold mb-5">What we do.</h2>
-            <p className="mb-3 text-justify">
-              We design and build scalable, user-friendly software solutions
-              tailored to individual, academic, and business needs. <br />
-            </p>
-            <ul className="list-disc list-inside mb-3 text-justify">
-              Our work spans:
-              <li className="mt-2">
-                Custom Software Training & Consulting in Microsoft Office tools
-                for improved productivity
-              </li>
-              <li>
-                Technical Prototyping & Visual Processing using tools like
-                MATLAB and Python
-              </li>
-              <li>
-                Community Learning through mentorship, academic tutorials, and
-                peer support
-              </li>
-              <li>
-                Open Source Contributions and freelance collaboration on
-                client-centered projects
-              </li>
-            </ul>
-            <Button btnName={"Contact"} btnUrl={"/contact"} />
+              return (
+                <motion.div 
+                  key={project.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="col-span-1 group flex flex-col bg-[var(--card-bg)] rounded-[32px] p-6 border border-[var(--border-color)] transition-colors"
+                >
+                  <div className="w-full h-64 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 mb-8 relative flex items-center justify-center p-4">
+                    <Image 
+                      src={project.image} 
+                      alt={project.name}
+                      fill
+                      className="object-contain rounded-xl shadow-md"
+                    />
+                  </div>
+                  <div className="flex flex-col flex-grow px-2">
+                    <h3 className="text-3xl font-extrabold mb-3" style={{ fontFamily: "var(--font-chillax)" }}>{project.name}</h3>
+                    <p className="text-[var(--text-color)]/70 mb-8 flex-grow leading-relaxed">{project.desc}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="text-xs uppercase tracking-wider font-semibold px-4 py-2 border border-[var(--border-color)] rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* -------------------Portfolio------------------ */}
-      <section className="mt-20 mb-10 px-4 md:px-12 py-8 bg-gray-900">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-left text-[#53c2ab] mb-8">
-          Projects
-        </h2>
-        {/*Portfolio card  */}
-        <div className="flex flex-col gap-6">
-        {/* Card 1 */}
-          <Link
-            className="flex flex-col lg:flex-row gap-8 justify-between items-center peer transition-hover duration-300 p-2 mb-20"
-            href={"https://leaves-rake-39990396.figma.site/"}
-          >
-            <Image
-              src={"/Pumpmas.png"}
-              alt="Pumpmas"
-              width={550}
-              height={500}
-              className="flex-1/2 "
-            />
-            <div className="flex-1/2 self-start md:pl-8">
-              <h3 className="text-2xl font-bold mb-2 text-[#53c2ab] peer-hover:underline">
-                Pumpmas - Decentralized Finance &#40;DeFi&#41; Web Apps
-              </h3>
-              <p className="text-left  border-l-4 border-indigo-500">
-                Built for a memecoin on the Ethereum &#40;ETH&#41; blockchain.
-                This project highlights proficiency in presenting tokenomics,
-                community links, and roadmap information for decentralized
-                applications.
-              </p>
+      {/* Tech Stack Section */}
+      <section className="py-24 border-t border-[var(--border-color)]">
+        <h2 className="text-5xl font-extrabold mb-16 text-center" style={{ fontFamily: "var(--font-chillax)" }}>Tech Stack.</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {Object.entries(techStack).map(([category, techs]) => (
+            <div key={category} className="flex flex-col gap-6">
+              <h3 className="text-xl font-bold uppercase tracking-widest text-[var(--text-color)]/50 ml-2" style={{ fontFamily: "var(--font-chillax)" }}>{category}</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {techs.map((tech) => (
+                  <div 
+                    key={tech.name} 
+                    className="flex flex-col items-center justify-center gap-4 p-6 bg-[var(--card-bg)] border border-[var(--border-color)] rounded-3xl hover:bg-[var(--text-color)]/5 transition-colors"
+                  >
+                    <tech.icon size={32} className="text-[var(--text-color)]/60" strokeWidth={1.5} />
+                    <span className="text-sm font-semibold text-center">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </Link>
-          {/* card 2 */}
-          <Link
-            className="flex flex-col lg:flex-row-reverse gap-8 justify-between items-center peer transition-hover duration-300 p-2 mb-20"
-            href={"https://peer-beam-v01.vercel.app/"}
-          >
-            <Image
-              src={"/peerBeam.png"}
-              alt="PeerBeam"
-              width={550}
-              height={500}
-              className="flex-1/2 ml-4"
-            />
-            <div className="flex-1/2 self-start md:pl-8">
-              <h3 className="text-2xl font-bold mb-2 text-[#53c2ab] peer-hover:underline">
-                PeerBeam
-              </h3>
-              <p className="text-left">
-                PeerBeam is a modern, real-time file transfer web application
-                designed to facilitate quick and secure sharing of files between
-                users.
-              </p>
-            </div>
-          </Link>
-          {/* Card 3 */}
-          <Link
-            className="flex flex-col lg:flex-row gap-8 justify-between items-center peer transition-hover duration-300 p-2 mb-20"
-            href={"https://code-ham-charity.vercel.app/index.html"}
-          >
-            <Image
-              src={"/codeham_charity.png"}
-              alt="Codeham Charity"
-              width={550}
-              height={500}
-              className="flex-1/2 "
-            />
-            <div className="flex-1/2 self-start md:pl-8">
-              <h3 className="text-2xl font-bold mb-2 text-[#53c2ab] peer-hover:underline">
-                Codeham Charity
-              </h3>
-              <p className="text-left">
-                A comprehensive, feature-rich website developed for CodeHam
-                Charity, a non-governmental organization focused on facilitating
-                donations, awareness, and community engagement.
-              </p>
-            </div>
-          </Link>
-          {/* Card 4 */}
-          <Link
-            className="flex flex-col lg:flex-row-reverse gap-8 justify-between items-center peer transition-hover duration-300 p-2 mb-20"
-            href={"https://gladtidingsclone.vercel.app/"}
-          >
-            <Image
-              src={"/gladtidings.png"}
-              alt="Gladtidings"
-              width={550}
-              height={500}
-              className="flex-1/2 ml-4"
-            />
-            <div className="flex-1/2 self-start md:pl-8">
-              <h3 className="text-2xl font-bold mb-2 text-[#53c2ab] peer-hover:underline">
-                Gladtidings
-              </h3>
-              <p className="text-left">
-                A landing page clone demonstrating strong front-end replication
-                and design skills, specifically modeling a commercial website
-                focused on selling data services.
-              </p>
-            </div>
-          </Link>
-          {/* Card 5 */}
-          <Link
-            className="flex flex-col lg:flex-row gap-8 justify-between items-center peer transition-hover duration-300 p-2 mb-20"
-            href={"https://tomiotoken.netlify.app/"}
-          >
-            <Image
-              src={"/the_tomio.png"}
-              alt="The Tomio"
-              width={550}
-              height={500}
-              className="flex-1/2 "
-            />
-            <div className="flex-1/2 self-start md:text-left pl-8">
-              <h3 className="text-2xl font-bold mb-2 text-[#53c2ab] peer-hover:underline">
-                The Tomio
-              </h3>
-              <p className="text-left">
-                Built for a memecoin on the Solana &#40;SOL&#41; blockchain.
-                This app demonstrates adaptability to different blockchain
-                ecosystems and knowledge of presenting key token data relevant
-                to the high-speed Solana network.
-              </p>
-            </div>
-          </Link>
-          {/* Card 6 */}
-           <Link
-            className="flex flex-col lg:flex-row gap-8 justify-between items-center peer transition-hover duration-300 p-2 mb-20"
-            href={"https://mspaintify.vercel.app/"}
-          >
-            <Image
-              src={"/mspaintify-vercel-app.png"}
-              alt="MSPAINTIFY"
-              width={550}
-              height={500}
-              className="flex-1/2 "
-            />
-            <div className="flex-1/2 self-start md:text-left pl-8">
-              <h3 className="text-2xl font-bold mb-2 text-[#53c2ab] peer-hover:underline">
-                MSPAINTIFY
-              </h3>
-              <p className="text-left">
-                A flashy crypto token landing page with an integrated AI image generator built with Next.js, Tailwind CSS, and OpenAI..
-              </p>
-            </div>
-          </Link>
+          ))}
         </div>
       </section>
-    </div>
+    </>
   );
 }
