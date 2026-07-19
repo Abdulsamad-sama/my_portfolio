@@ -1,5 +1,14 @@
 export const featuredProjects = [
   {
+    slug: "markitdown",
+    name: "MarkItDown",
+    type: "Web",
+    desc: "A stunning, modern landing page for MarkItDown Desktop, a local privacy-first file-to-Markdown converter. Features a pure black minimal design.",
+    tags: ["React", "Vite", "Tailwind"],
+    image: "/markitdown.png",
+    fullWidth: true
+  },
+  {
     slug: "pumpmas",
     name: "Pumpmas",
     type: "Web",

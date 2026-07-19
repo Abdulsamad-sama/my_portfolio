@@ -5,6 +5,12 @@ import Microlink from "@microlink/react";
 
 const allProjects = [
   {
+    name: "MarkItDown",
+    url: "https://github.com/Abdulsamad-sama/markitdown_website",
+    desc: "A stunning, modern landing page for MarkItDown Desktop, a local privacy-first file-to-Markdown converter. Features a pure black cursor-inspired minimal design.",
+    tags: ["React", "Vite", "Tailwind"]
+  },
+  {
     name: "Pumpmas",
     url: "https://leaves-rake-39990396.figma.site/",
     desc: "Decentralized Finance (DeFi) Web App built for a memecoin on the Ethereum (ETH) blockchain. This project highlights proficiency in presenting tokenomics, community links, and roadmap information.",
@@ -60,7 +66,7 @@ export default function ProjectsPage() {
 
       <div className="grid md:grid-cols-2 gap-10">
         {allProjects.map((project, idx) => (
-          <motion.div 
+          <motion.div
             key={project.name}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,8 +75,8 @@ export default function ProjectsPage() {
             className="group flex flex-col bg-[var(--card-bg)] rounded-3xl p-6 md:p-8 border border-[var(--border-color)] hover:border-[var(--color-primary)] transition-all hover:shadow-xl hover:-translate-y-1"
           >
             <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-8 bg-gray-100 dark:bg-gray-800">
-              <Microlink 
-                url={project.url} 
+              <Microlink
+                url={project.url}
                 size="large"
                 media="screenshot"
                 className="w-full h-full object-cover border-0"
@@ -81,7 +87,7 @@ export default function ProjectsPage() {
             <p className="text-[var(--text-color)]/70 mb-8 flex-grow leading-relaxed">
               {project.desc}
             </p>
-            
+
             <div className="flex flex-wrap gap-3">
               {project.tags.map(tag => (
                 <span key={tag} className="text-xs uppercase tracking-wider font-semibold px-4 py-2 bg-[var(--text-color)]/5 border border-[var(--border-color)] rounded-full">
