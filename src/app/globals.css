@@ -8,9 +8,6 @@
   --color-light-bg: #f9f9f9;
   --color-light-card: #ffffff;
   --color-light-border: #e5e5e5;
-
-  --font-chillax: "Chillax", sans-serif;
-  --font-lexend: "Lexend", sans-serif;
 }
 
 @layer base {

@@ -2,6 +2,40 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Lexend } from "next/font/google";
+import localFont from "next/font/local";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-lexend",
+});
+
+const chillax = localFont({
+  src: [
+    {
+      path: "../fonts/Chillax-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Chillax-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Chillax-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Chillax-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-chillax",
+});
 
 export const metadata = {
   title: "Abdulsamad Hamzat | Full-Stack Developer",
@@ -11,18 +45,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600,700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="antialiased selection:bg-primary/30 min-h-screen flex flex-col">
+    <html lang="en" suppressHydrationWarning className={`${lexend.variable} ${chillax.variable}`}>
+      <body className="antialiased selection:bg-primary/30 min-h-screen flex flex-col font-sans">
         <Providers>
           <Navbar />
           <main className="flex-grow pt-24 px-6 md:px-12 lg:px-24 mx-auto w-full max-w-7xl">

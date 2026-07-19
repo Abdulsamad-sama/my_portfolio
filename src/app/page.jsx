@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { 
-  FiCode, 
-  FiSmartphone, 
-  FiDatabase, 
+import {
+  FiCode,
+  FiSmartphone,
+  FiDatabase,
   FiTool,
   FiBox,
   FiGlobe,
@@ -45,13 +45,13 @@ const techStack = {
 export default function Home() {
   const [filter, setFilter] = useState("All");
 
-  const filteredProjects = filter === "All" 
-    ? featuredProjects 
+  const filteredProjects = filter === "All"
+    ? featuredProjects
     : featuredProjects.filter(p => p.type === filter);
 
   return (
     <>
-      
+
       {/* Hero Section */}
       <section className="min-h-[85vh] flex flex-col justify-center items-center text-center gap-6 mt-12 px-4">
         <motion.div
@@ -64,13 +64,13 @@ export default function Home() {
             Hi, I&apos;m Abdulsamad.
           </h1>
           <p className="text-xl md:text-2xl text-[var(--text-color)]/70 leading-relaxed font-light mb-10 max-w-3xl">
-            I build and ship full-stack web and software applications using modern technologies. 
-            Specializing in creating exceptional digital experiences, I combine deep technical 
+            I build and ship full-stack web and software applications using modern technologies.
+            Specializing in creating exceptional digital experiences, I combine deep technical
             skills with a strong focus on collaboration and user-centered design.
           </p>
 
-          <Link 
-            href="mailto:contact@abdulsamad.com" 
+          <Link
+            href="mailto:contact@abdulsamad.com"
             className="px-10 py-5 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform shadow-lg shadow-black/5 dark:shadow-white/5"
           >
             Get In Touch
@@ -102,17 +102,18 @@ export default function Home() {
               if (project.fullWidth) {
                 return (
                   <Link href={`/projects/${project.slug}`} key={project.name} className="col-span-1 md:col-span-2 group">
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       className="flex flex-col md:flex-row bg-[var(--card-bg)] rounded-[32px] p-4 md:p-8 border border-[var(--border-color)] transition-all hover:border-[var(--text-color)]/30 hover:scale-[1.01] gap-8 items-center cursor-pointer"
                     >
                       <div className="w-full md:w-3/5 h-64 md:h-96 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 relative flex items-center justify-center p-4">
-                        <Image 
-                          src={project.image} 
+                        <Image
+                          src={project.image}
                           alt={project.name}
                           fill
+                          sizes="(max-width: 768px) 100vw, 60vw"
                           className="object-contain rounded-xl shadow-lg transition-transform group-hover:scale-105"
                         />
                       </div>
@@ -137,7 +138,7 @@ export default function Home() {
 
               return (
                 <Link href={`/projects/${project.slug}`} key={project.name} className="col-span-1 group">
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -145,10 +146,11 @@ export default function Home() {
                     className="flex flex-col h-full bg-[var(--card-bg)] rounded-[32px] p-6 border border-[var(--border-color)] transition-all hover:border-[var(--text-color)]/30 hover:scale-[1.02] cursor-pointer"
                   >
                     <div className="w-full h-64 rounded-2xl overflow-hidden bg-[var(--border-color)]/30 mb-8 relative flex items-center justify-center p-4">
-                      <Image 
-                        src={project.image} 
+                      <Image
+                        src={project.image}
                         alt={project.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-contain rounded-xl shadow-md transition-transform group-hover:scale-105"
                       />
                     </div>
@@ -174,15 +176,15 @@ export default function Home() {
       {/* Tech Stack Section */}
       <section className="py-24 border-t border-[var(--border-color)]">
         <h2 className="text-5xl font-extrabold mb-16 text-center" style={{ fontFamily: "var(--font-chillax)" }}>Tech Stack.</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {Object.entries(techStack).map(([category, techs]) => (
             <div key={category} className="flex flex-col gap-6">
               <h3 className="text-xl font-bold uppercase tracking-widest text-[var(--text-color)]/50 ml-2" style={{ fontFamily: "var(--font-chillax)" }}>{category}</h3>
               <div className="grid grid-cols-2 gap-4">
                 {techs.map((tech) => (
-                  <div 
-                    key={tech.name} 
+                  <div
+                    key={tech.name}
                     className="flex flex-col items-center justify-center gap-4 p-6 bg-[var(--card-bg)] border border-[var(--border-color)] rounded-3xl hover:bg-[var(--text-color)]/5 transition-colors"
                   >
                     <tech.icon size={32} className="text-[var(--text-color)]/60" strokeWidth={1.5} />
