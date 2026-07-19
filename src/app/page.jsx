@@ -93,6 +93,15 @@ export default function Home() {
               </motion.span>
             ))}
           </motion.h1>
+
+          <motion.h2 
+            className="text-2xl md:text-3xl font-bold mb-8 text-[var(--text-color)]/80 font-chillax"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3.2, duration: 0.8 }}
+          >
+            Full-Stack Developer <span className="text-[var(--text-color)]/30 mx-2">·</span> AI Builder
+          </motion.h2>
           <p className="text-xl md:text-2xl text-[var(--text-color)]/70 leading-relaxed font-light mb-10 max-w-3xl">
             I'm a computer engineering student currently building full-stack products at the intersection of AI and human interaction — from webcam-based skin analysis tools to AI image generation pipelines. I work mainly in Next.js, TypeScript, and FastAPI.
           </p>
