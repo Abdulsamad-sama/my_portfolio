@@ -11,8 +11,8 @@ export default function Notes() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.2 }}
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6" style={{ fontFamily: "var(--font-chillax)" }}>Notes.</h1>
-          <p className="text-[var(--text-color)]/60 text-xl font-light">
+          <h1 className="text-6xl md:text-8xl font-extrabold mb-6 font-chillax text-[var(--text-color)]">Notes.</h1>
+          <p className="text-[var(--text-color)]/60 text-xl md:text-2xl font-light">
             Thoughts, ideas, and technical writings coming soon.
           </p>
         </motion.div>

@@ -26,7 +26,7 @@ export default function ProjectDetail({ params }) {
             {project.type} APP
           </span>
         </div>
-        <h1 className="text-6xl md:text-8xl font-extrabold mb-8" style={{ fontFamily: "var(--font-chillax)" }}>
+        <h1 className="text-6xl md:text-8xl font-extrabold mb-8 font-chillax text-[var(--text-color)]">
           {project.name}
         </h1>
         <p className="text-xl md:text-2xl text-[var(--text-color)]/70 leading-relaxed font-light max-w-3xl">
@@ -34,7 +34,7 @@ export default function ProjectDetail({ params }) {
         </p>
       </div>
 
-      <div className="w-full h-96 md:h-[600px] rounded-[32px] overflow-hidden bg-[var(--border-color)]/30 relative flex items-center justify-center p-8 mb-16 border border-[var(--border-color)]">
+      <div className="w-full h-96 md:h-[600px] rounded-[32px] overflow-hidden bg-[var(--border-color)]/30 relative flex items-center justify-center p-8 mb-16 border border-[var(--border-color)] shadow-sm dark:shadow-none">
         <Image 
           src={project.image} 
           alt={project.name}
@@ -47,7 +47,7 @@ export default function ProjectDetail({ params }) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-[var(--border-color)] pt-16">
         <div className="col-span-1 md:col-span-2">
-          <h3 className="text-3xl font-bold mb-6" style={{ fontFamily: "var(--font-chillax)" }}>Overview</h3>
+          <h3 className="text-4xl font-bold mb-6 font-chillax text-[var(--text-color)]">Overview</h3>
           <p className="text-[var(--text-color)]/70 text-lg leading-relaxed mb-6">
             This project showcases a deep integration of modern web technologies to create a seamless user experience. 
             It was built with a focus on performance, scalability, and responsive design, ensuring that it works flawlessly 
@@ -58,12 +58,12 @@ export default function ProjectDetail({ params }) {
           </a>
         </div>
         <div className="col-span-1">
-          <h3 className="text-xl font-bold mb-6 tracking-wide" style={{ fontFamily: "var(--font-chillax)" }}>Technologies</h3>
+          <h3 className="text-2xl font-bold mb-6 tracking-wide font-chillax text-[var(--text-color)]">Technologies</h3>
           <div className="flex flex-col gap-4">
             {project.tags.map(tag => (
               <div key={tag} className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-[var(--text-color)]/40"></div>
-                <span className="text-lg font-medium">{tag}</span>
+                <span className="text-lg font-medium text-[var(--text-color)]/90">{tag}</span>
               </div>
             ))}
           </div>

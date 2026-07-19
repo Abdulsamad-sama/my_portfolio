@@ -13,13 +13,13 @@ export default function About() {
   return (
     <>
       
-      <section className="py-24 max-w-6xl mx-auto">
+      <section className="py-24 max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.2 }}
         >
-          <h1 className="text-6xl md:text-8xl font-extrabold mb-16 text-center" style={{ fontFamily: "var(--font-chillax)" }}>
+          <h1 className="text-6xl md:text-8xl font-extrabold mb-16 text-center font-chillax text-[var(--text-color)]">
             About.
           </h1>
 
@@ -27,15 +27,15 @@ export default function About() {
             {principles.map((p, i) => (
               <div key={p.id} className="flex flex-col border-t border-[var(--border-color)] pt-6">
                 <span className="text-xl font-medium text-[var(--text-color)]/40 mb-4">{p.id}</span>
-                <h3 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-chillax)" }}>{p.title}</h3>
+                <h3 className="text-4xl font-bold mb-4 font-chillax text-[var(--text-color)]">{p.title}</h3>
                 <p className="text-[var(--text-color)]/70 text-lg leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
 
           <div className="max-w-4xl mx-auto border-t border-[var(--border-color)] pt-16">
-            <h2 className="text-3xl font-bold mb-8" style={{ fontFamily: "var(--font-chillax)" }}>Who I am</h2>
-            <div className="flex flex-col gap-6 text-[var(--text-color)]/80 text-lg leading-relaxed font-light">
+            <h2 className="text-4xl font-bold mb-8 font-chillax text-[var(--text-color)]">Who I am</h2>
+            <div className="flex flex-col gap-6 text-[var(--text-color)]/80 text-xl md:text-2xl leading-relaxed font-light">
               <p>
                 I am Abdulsamad Hamzat, a passionate Full-Stack Developer with a proven track record in building 
                 innovative and reliable software solutions. Over the years, I have honed my skills across the stack, 

@@ -22,8 +22,8 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 2.2 }}
         >
           <div className="text-center mb-16">
-            <h1 className="text-6xl md:text-8xl font-extrabold mb-6" style={{ fontFamily: "var(--font-chillax)" }}>Contact.</h1>
-            <p className="text-[var(--text-color)]/60 text-xl font-light">Have a project in mind? Let's work together.</p>
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-6 font-chillax text-[var(--text-color)]">Contact.</h1>
+            <p className="text-[var(--text-color)]/60 text-xl md:text-2xl font-light">Have a project in mind? Let's work together.</p>
           </div>
 
           <form className="flex flex-col gap-8 mb-24">
@@ -71,7 +71,7 @@ export default function Contact() {
             <div className="flex flex-col gap-2">
               <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Message</label>
               <textarea 
-                className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors resize-none h-32 placeholder:text-[var(--text-color)]/20"
+                className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors resize-none h-32 placeholder:text-[var(--text-color)]/20 text-lg"
                 placeholder="Tell me about your project..."
                 required
               ></textarea>

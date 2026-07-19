@@ -25,40 +25,46 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-40">
-      <div className="flex items-center gap-1 px-4 py-2 bg-[var(--card-bg)]/70 backdrop-blur-xl border border-[var(--border-color)] rounded-full shadow-md">
+      <div className="flex font-chillax font-medium bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-full p-[6px] lg:text-lg md:text-sm text-[14.5px] items-center gap-1 sm:gap-2 shadow-sm dark:shadow-none transition-colors duration-300">
         
-        <div className="flex items-center gap-1">
-          {links.map((link) => {
-            const isActive = pathname === link.path || (link.path === "/projects" && pathname === "/");
-            return (
-              <Link
-                key={link.name}
-                href={link.path}
-                className={`relative px-4 py-2 rounded-full text-sm transition-colors ${isActive ? 'text-[var(--bg-color)] font-medium' : 'text-[var(--text-color)]/70 hover:text-[var(--text-color)]'}`}
-              >
-                {isActive && (
-                  <motion.div
-                    layoutId="active-nav-bubble"
-                    className="absolute inset-0 bg-[var(--text-color)] rounded-full"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{link.name}</span>
-              </Link>
-            );
-          })}
-        </div>
+        {links.map((link) => {
+          const isActive = pathname === link.path || (link.path === "/projects" && pathname === "/");
+          return (
+            <Link
+              key={link.name}
+              href={link.path}
+              className={`relative px-4 sm:px-6 py-2 flex items-center justify-center transition-colors z-10 ${
+                isActive 
+                  ? "text-white dark:text-black font-semibold" 
+                  : "text-black dark:text-gray-300 hover:text-gray-600 dark:hover:text-white"
+              }`}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="active-nav-bubble"
+                  className="absolute inset-0 bg-black dark:bg-white rounded-full -z-10"
+                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{link.name}</span>
+            </Link>
+          );
+        })}
 
-        <div className="w-px h-6 bg-[var(--border-color)] mx-2"></div>
+        <div className="w-px h-5 bg-gray-300 dark:bg-gray-600 hidden md:block mx-1"></div>
 
-        <div className="flex items-center">
+        <div className="px-2">
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-full text-[var(--text-color)]/70 hover:bg-[var(--text-color)]/10 hover:text-[var(--text-color)] transition-colors"
+              className="p-3 -m-3 rounded-full transition-colors hover:bg-black/10 dark:hover:bg-white/10 bg-transparent border-none cursor-pointer flex items-center justify-center"
               aria-label="Toggle Dark Mode"
             >
-              {theme === "dark" ? <FiSun size={16} /> : <FiMoon size={16} />}
+              {theme === "dark" ? (
+                <FiSun className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+              ) : (
+                <FiMoon className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+              )}
             </button>
           )}
         </div>
