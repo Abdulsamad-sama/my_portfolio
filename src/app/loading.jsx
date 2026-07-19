@@ -1,16 +1,25 @@
-import React from "react";
-
-// Add this below the component
-// Tailwind CSS animation for text color fill effect
-
-// Update the component to include the animation:
-
 const Loading = () => {
   return (
-    <div className="w-full flex justify-center items-center h-40">
-      <h1 className="text-8xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-[length:200%_100%] bg-clip-text text-transparent animate-gradient-move">
-        Abdulsamad
+    <div className="fixed inset-0 flex flex-col justify-center items-center z-[999] bg-[var(--bg-color)]">
+      <h1 className="text-5xl md:text-7xl font-extrabold font-chillax text-[var(--text-color)] mb-8 tracking-tight">
+        Abdulsamad.
       </h1>
+      <div className="w-48 h-[3px] bg-[var(--border-color)] rounded-full overflow-hidden">
+        <div
+          className="h-full bg-[var(--text-color)] rounded-full"
+          style={{
+            animation: "loading-bar 1.2s ease-in-out infinite",
+          }}
+        />
+      </div>
+
+      <style>{`
+        @keyframes loading-bar {
+          0% { width: 0%; margin-left: 0; }
+          50% { width: 60%; margin-left: 20%; }
+          100% { width: 0%; margin-left: 100%; }
+        }
+      `}</style>
     </div>
   );
 };

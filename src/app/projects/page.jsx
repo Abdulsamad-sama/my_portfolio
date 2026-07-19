@@ -2,50 +2,12 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { featuredProjects } from "@/data/projects";
 
 const Microlink = dynamic(() => import("@microlink/react"), {
   ssr: false,
   loading: () => <div className="w-full h-full animate-pulse bg-[var(--border-color)]/30 rounded-2xl" />
 });
-
-const allProjects = [
-  {
-    name: "Pumpmas",
-    url: "https://leaves-rake-39990396.figma.site/",
-    desc: "Decentralized Finance (DeFi) Web App built for a memecoin on the Ethereum (ETH) blockchain. This project highlights proficiency in presenting tokenomics, community links, and roadmap information.",
-    tags: ["React", "Web3", "Tailwind"]
-  },
-  {
-    name: "PeerBeam",
-    url: "https://peer-beam-v01.vercel.app/",
-    desc: "A modern, real-time file transfer web application designed to facilitate quick and secure sharing of files between users.",
-    tags: ["Next.js", "WebSockets", "Node.js"]
-  },
-  {
-    name: "Codeham Charity",
-    url: "https://code-ham-charity.vercel.app/",
-    desc: "A comprehensive, feature-rich website developed for CodeHam Charity, a non-governmental organization focused on facilitating donations, awareness, and community engagement.",
-    tags: ["React", "Tailwind CSS"]
-  },
-  {
-    name: "Gladtidings",
-    url: "https://gladtidingsclone.vercel.app/",
-    desc: "A landing page clone demonstrating strong front-end replication and design skills, specifically modeling a commercial website focused on selling data services.",
-    tags: ["HTML", "CSS", "JS"]
-  },
-  {
-    name: "The Tomio",
-    url: "https://tomiotoken.netlify.app/",
-    desc: "Built for a memecoin on the Solana (SOL) blockchain. Demonstrates adaptability to different blockchain ecosystems and presenting key token data.",
-    tags: ["Solana", "React"]
-  },
-  {
-    name: "MSPAINTIFY",
-    url: "https://mspaintify.vercel.app/",
-    desc: "A flashy crypto token landing page with an integrated AI image generator built with Next.js, Tailwind CSS, and OpenAI.",
-    tags: ["Next.js", "OpenAI", "Tailwind"]
-  }
-];
 
 export default function ProjectsPage() {
   return (
@@ -64,8 +26,8 @@ export default function ProjectsPage() {
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-10">
-        {allProjects.map((project, idx) => (
-          <motion.div 
+        {featuredProjects.map((project, idx) => (
+          <motion.div
             key={project.name}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,8 +36,8 @@ export default function ProjectsPage() {
             className="group flex flex-col bg-[var(--card-bg)] rounded-3xl p-6 md:p-8 border border-[var(--border-color)] hover:border-[var(--border-color)]/80 transition-all hover:shadow-xl hover:-translate-y-1 shadow-sm dark:shadow-none"
           >
             <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-8 bg-[var(--border-color)]/30">
-              <Microlink 
-                url={project.url} 
+              <Microlink
+                url={project.url}
                 size="large"
                 media="screenshot"
                 className="w-full h-full object-cover border-0"
@@ -86,7 +48,7 @@ export default function ProjectsPage() {
             <p className="text-[var(--text-color)]/70 mb-8 flex-grow leading-relaxed">
               {project.desc}
             </p>
-            
+
             <div className="flex flex-wrap gap-3">
               {project.tags.map(tag => (
                 <span key={tag} className="text-xs uppercase tracking-wider font-semibold px-4 py-2 bg-[var(--text-color)]/5 border border-[var(--border-color)] text-[var(--text-color)]/70 rounded-full">
@@ -100,3 +62,4 @@ export default function ProjectsPage() {
     </div>
   );
 }
+

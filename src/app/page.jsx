@@ -69,12 +69,21 @@ export default function Home() {
             skills with a strong focus on collaboration and user-centered design.
           </p>
 
-          <Link
-            href="mailto:contact@abdulsamad.com"
-            className="px-10 py-5 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform shadow-lg shadow-black/5 dark:shadow-white/5"
-          >
-            Get In Touch
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              href="mailto:contact@abdulsamad.com"
+              className="px-10 py-5 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform shadow-lg shadow-black/5 dark:shadow-white/5"
+            >
+              Get In Touch
+            </Link>
+            <a
+              href="/Abdulsamad_Hamzat_CV.pdf"
+              download
+              className="px-10 py-5 border border-[var(--border-color)] text-[var(--text-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform hover:bg-[var(--text-color)]/5"
+            >
+              Download CV
+            </a>
+          </div>
         </motion.div>
       </section>
 
