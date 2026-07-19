@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { FiMail, FiFile } from "react-icons/fi";
 
 const principles = [
   { id: "01", title: "Make it", desc: "Bringing ideas to life through robust and scalable code, ensuring every product is built with the future in mind." },
@@ -20,8 +22,8 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.2 }}
         >
-          <h1 className="text-6xl md:text-8xl font-extrabold mb-16 text-center font-chillax text-[var(--text-color)]">
-            About.
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-16 text-center font-chillax text-[var(--text-color)]">
+            I'm Abdulsamad Hamzat
           </h1>
 
           {/* Profile Image + Bio */}
@@ -38,11 +40,11 @@ export default function About() {
             </div>
 
             <div>
-              <h2 className="text-4xl font-bold mb-8 font-chillax text-[var(--text-color)]">Who I am</h2>
-              <div className="flex flex-col gap-6 text-[var(--text-color)]/80 text-xl md:text-2xl leading-relaxed font-light">
+              <div className="flex flex-col gap-6 text-[var(--text-color)]/80 text-lg md:text-lg leading-relaxed font-light">
+                <h2 className="text-xl font-bold text-wrap font-chillax text-[var(--text-color)]">a passionate Full-Stack Developer with a proven track record in building
+                  innovative and reliable software solutions.</h2>
                 <p>
-                  I am Abdulsamad Hamzat, a passionate Full-Stack Developer with a proven track record in building
-                  innovative and reliable software solutions. Over the years, I have honed my skills across the stack,
+                  Over the years, I have honed my skills across the stack,
                   specializing in React, Next.js, Node.js, and Python.
                 </p>
                 <p>
@@ -50,11 +52,22 @@ export default function About() {
                   focused on creating high-performance applications. I thrive in dynamic environments where I can
                   tackle complex technical challenges and collaborate with talented individuals.
                 </p>
-                <p>
-                  Whether it's architecting a robust backend database, crafting an intuitive mobile interface in
-                  React Native, or integrating complex smart contracts, my goal is always to deliver software
-                  that works seamlessly and scales gracefully.
-                </p>
+
+              </div>
+              <div className="flex flex-col sm:flex-row items-start gap-4 mt-4">
+                <Link
+                  href="mailto:contact@abdulsamad.com"
+                  className="  px-6 py-2 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform shadow-lg shadow-black/5 dark:shadow-white/5"
+                >
+                  Get In Touch
+                </Link>
+                <Link
+                  href="/Abdulsamad_Hamzat_CV.pdf"
+                  download
+                  className="px-6 py-2 border border-[var(--border-color)] text-[var(--text-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform hover:bg-[var(--text-color)]/5"
+                >
+                  Download CV
+                </Link>
               </div>
             </div>
           </div>
@@ -70,7 +83,7 @@ export default function About() {
             ))}
           </div>
         </motion.div>
-      </section>
+      </section >
     </>
   );
 }

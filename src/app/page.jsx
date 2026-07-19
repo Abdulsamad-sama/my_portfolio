@@ -58,15 +58,52 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.2 }} // Wait for preloader
-          className="max-w-4xl flex flex-col items-center"
+          className="max-w-5xl flex flex-col items-center"
         >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 leading-tight font-chillax text-[var(--text-color)]">
-            Hi, I&apos;m Abdulsamad.
-          </h1>
+          <motion.h1
+            className="text-6xl md:text-7xl lg:text-9xl font-extrabold tracking-tight mb-2 leading-none font-chillax text-[var(--text-color)]"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 1 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.06,
+                  delayChildren: 2.2,
+                },
+              },
+            }}
+          >
+            {"Abdulsamad Hamzat.".split("").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    transition: { type: "spring", stiffness: 100, damping: 10 }
+                  },
+                }}
+                style={{ display: "inline-block", whiteSpace: "pre" }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.h1>
+          
+          <motion.h2 
+            className="text-2xl md:text-4xl font-bold mb-8 text-[var(--text-color)]/80 font-chillax"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3.2, duration: 0.8 }}
+          >
+            Full-Stack Developer <span className="text-[var(--text-color)]/30 mx-2">·</span> AI Builder
+          </motion.h2>
           <p className="text-xl md:text-2xl text-[var(--text-color)]/70 leading-relaxed font-light mb-10 max-w-3xl">
-            I build and ship full-stack web and software applications using modern technologies.
-            Specializing in creating exceptional digital experiences, I combine deep technical
-            skills with a strong focus on collaboration and user-centered design.
+            I'm a computer engineering student currently building full-stack products at the intersection of AI and human interaction — from webcam-based skin analysis tools to AI image generation pipelines. I work mainly in Next.js, TypeScript, and FastAPI.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -76,13 +113,7 @@ export default function Home() {
             >
               Get In Touch
             </Link>
-            <a
-              href="/Abdulsamad_Hamzat_CV.pdf"
-              download
-              className="px-10 py-5 border border-[var(--border-color)] text-[var(--text-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform hover:bg-[var(--text-color)]/5"
-            >
-              Download CV
-            </a>
+
           </div>
         </motion.div>
       </section>
