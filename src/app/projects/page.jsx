@@ -1,7 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Microlink from "@microlink/react";
+import dynamic from "next/dynamic";
+
+const Microlink = dynamic(() => import("@microlink/react"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full animate-pulse bg-[var(--border-color)]/30 rounded-2xl" />
+});
 
 const allProjects = [
   {

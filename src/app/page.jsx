@@ -113,6 +113,7 @@ export default function Home() {
                           src={project.image}
                           alt={project.name}
                           fill
+                          priority={idx === 0}
                           sizes="(max-width: 768px) 100vw, 60vw"
                           className="object-contain rounded-xl shadow-lg transition-transform group-hover:scale-105"
                         />
@@ -150,6 +151,7 @@ export default function Home() {
                         src={project.image}
                         alt={project.name}
                         fill
+                        priority={idx === 0}
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-contain rounded-xl shadow-md transition-transform group-hover:scale-105"
                       />

@@ -39,6 +39,7 @@ export default function ProjectDetail({ params }) {
           src={project.image} 
           alt={project.name}
           fill
+          priority
           sizes="100vw"
           className="object-contain shadow-2xl rounded-2xl"
         />
