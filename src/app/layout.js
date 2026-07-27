@@ -41,6 +41,16 @@ export const metadata = {
   title: "Abdulsamad Hamzat | Full-Stack Developer",
   description:
     "Software engineer specializing in building modern web apps with React, Node.js, and Python. View my projects and get in touch.",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
