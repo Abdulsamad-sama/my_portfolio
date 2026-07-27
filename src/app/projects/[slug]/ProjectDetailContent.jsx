@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
+import { FiArrowLeft, FiExternalLink, FiGithub } from "react-icons/fi";
 
 export default function ProjectDetailContent({ project }) {
   return (
@@ -25,8 +25,8 @@ export default function ProjectDetailContent({ project }) {
       </div>
 
       <div className="w-full h-96 md:h-[600px] rounded-[32px] overflow-hidden bg-[var(--border-color)]/30 relative flex items-center justify-center p-8 mb-16 border border-[var(--border-color)] shadow-sm dark:shadow-none">
-        <Image 
-          src={project.image} 
+        <Image
+          src={project.image}
           alt={project.name}
           fill
           priority
@@ -39,13 +39,29 @@ export default function ProjectDetailContent({ project }) {
         <div className="col-span-1 md:col-span-2">
           <h3 className="text-4xl font-bold mb-6 font-chillax text-[var(--text-color)]">Overview</h3>
           <p className="text-[var(--text-color)]/70 text-lg leading-relaxed mb-6">
-            This project showcases a deep integration of modern web technologies to create a seamless user experience. 
-            It was built with a focus on performance, scalability, and responsive design, ensuring that it works flawlessly 
+            This project showcases a deep integration of modern web technologies to create a seamless user experience.
+            It was built with a focus on performance, scalability, and responsive design, ensuring that it works flawlessly
             across all devices.
           </p>
-          <a href="#" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--text-color)] text-[var(--bg-color)] rounded-full font-semibold hover:scale-105 transition-transform text-sm mt-4">
-            Visit Website <FiExternalLink size={16} />
-          </a>
+          <div className="flex flex-wrap gap-4 mt-8">
+            {project.versions ? (
+              project.versions.map((version, idx) => (
+                <Link key={idx} href={version.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--text-color)] text-[var(--bg-color)] rounded-full font-semibold hover:scale-105 transition-transform text-sm">
+                  Visit {version.name} <FiExternalLink size={16} />
+                </Link>
+              ))
+            ) : project.url ? (
+              <Link href={project.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--text-color)] text-[var(--bg-color)] rounded-full font-semibold hover:scale-105 transition-transform text-sm">
+                Visit Website <FiExternalLink size={16} />
+              </Link>
+            ) : null}
+
+            {project.github && (
+              <Link href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[var(--text-color)] text-[var(--text-color)] rounded-full font-semibold hover:bg-[var(--text-color)] hover:text-[var(--bg-color)] transition-all text-sm">
+                <FiGithub size={18} /> GitHub Repository
+              </Link>
+            )}
+          </div>
         </div>
         <div className="col-span-1">
           <h3 className="text-2xl font-bold mb-6 tracking-wide font-chillax text-[var(--text-color)]">Technologies</h3>

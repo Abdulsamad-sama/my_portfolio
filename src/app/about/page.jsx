@@ -8,7 +8,7 @@ export const metadata = {
     title: "About Abdulsamad Hamzat",
     description:
       "Full-stack developer with a proven track record in building innovative web and mobile applications.",
-    url: "https://abdulsamad.com/about",
+    url: "https://abdulsamadcodes.netlify.app/about",
   },
 };
 

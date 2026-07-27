@@ -8,7 +8,7 @@ export const metadata = {
     title: "Contact Abdulsamad Hamzat",
     description:
       "Have a project in mind? Reach out to discuss collaborations, freelance work, or opportunities.",
-    url: "https://abdulsamad.com/contact",
+    url: "https://abdulsamadcodes.netlify.app/contact",
   },
 };
 

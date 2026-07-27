@@ -1,7 +1,7 @@
 import { featuredProjects } from "@/data/projects";
 
 export default function sitemap() {
-  const baseUrl = "https://abdulsamad.com";
+  const baseUrl = "https://abdulsamadcodes.netlify.app";
 
   const staticRoutes = [
     {

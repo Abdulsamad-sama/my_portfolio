@@ -129,7 +129,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
-              href="mailto:contact@abdulsamad.com"
+              href="mailto:hamzatabdulsamad34@gmail.com"
               className="px-10 py-5 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-105 transition-transform shadow-lg shadow-black/5 dark:shadow-white/5"
             >
               Get In Touch

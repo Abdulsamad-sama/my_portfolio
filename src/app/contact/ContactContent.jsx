@@ -8,7 +8,7 @@ export default function ContactContent() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("contact@abdulsamad.com");
+    navigator.clipboard.writeText("hamzatabdulsamad34@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -91,7 +91,7 @@ export default function ContactContent() {
               className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium"
             >
               <FiMail size={16} />
-              {copied ? "Copied!" : "contact@abdulsamad.com"}
+              {copied ? "Copied!" : "hamzatabdulsamad34@gmail.com"}
               <FiCopy size={14} className="ml-2 text-[var(--text-color)]/40" />
             </button>
             <a href="https://github.com/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">

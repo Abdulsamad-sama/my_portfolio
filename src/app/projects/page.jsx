@@ -8,7 +8,7 @@ export const metadata = {
     title: "Projects by Abdulsamad Hamzat",
     description:
       "A curated collection of web and mobile projects including DeFi platforms, AI tools, file transfer apps, and more.",
-    url: "https://abdulsamad.com/projects",
+    url: "https://abdulsamadcodes.netlify.app/projects",
   },
 };
 

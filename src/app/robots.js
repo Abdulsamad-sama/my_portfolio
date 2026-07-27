@@ -7,6 +7,6 @@ export default function robots() {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://abdulsamad.com/sitemap.xml",
+    sitemap: "https://abdulsamadcodes.netlify.app/sitemap.xml",
   };
 }

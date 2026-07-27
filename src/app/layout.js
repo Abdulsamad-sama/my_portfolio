@@ -10,7 +10,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Abdulsamad Hamzat",
-  url: "https://abdulsamad.com",
+  url: "https://abdulsamadcodes.netlify.app",
   jobTitle: "Full-Stack Developer",
   description:
     "Full-stack developer and AI builder specializing in Next.js, React, Node.js, and Python.",
@@ -25,7 +25,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Abdulsamad Hamzat",
-  url: "https://abdulsamad.com",
+  url: "https://abdulsamadcodes.netlify.app",
   description:
     "Portfolio of Abdulsamad Hamzat — full-stack developer and AI builder.",
 };
@@ -63,7 +63,10 @@ const chillax = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://abdulsamad.com"),
+  metadataBase: new URL("https://abdulsamadcodes.netlify.app"),
+  verification: {
+    google: "V4X4onBNNvWp2lnj5Dij7BQHfLL3q7oghcePgol6MMY",
+  },
   title: {
     default: "Abdulsamad Hamzat | Full-Stack Developer & AI Builder",
     template: "%s | Abdulsamad Hamzat",
@@ -83,7 +86,7 @@ export const metadata = {
     "frontend developer",
     "backend developer",
   ],
-  authors: [{ name: "Abdulsamad Hamzat", url: "https://abdulsamad.com" }],
+  authors: [{ name: "Abdulsamad Hamzat", url: "https://abdulsamadcodes.netlify.app" }],
   creator: "Abdulsamad Hamzat",
   manifest: "/site.webmanifest",
   icons: {
@@ -98,7 +101,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://abdulsamad.com",
+    url: "https://abdulsamadcodes.netlify.app",
     siteName: "Abdulsamad Hamzat",
     title: "Abdulsamad Hamzat | Full-Stack Developer & AI Builder",
     description:

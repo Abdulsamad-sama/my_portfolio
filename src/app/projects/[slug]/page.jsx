@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${project.name} — Project by Abdulsamad Hamzat`,
       description: project.desc,
-      url: `https://abdulsamad.com/projects/${project.slug}`,
+      url: `https://abdulsamadcodes.netlify.app/projects/${project.slug}`,
       images: [
         {
           url: project.image,
