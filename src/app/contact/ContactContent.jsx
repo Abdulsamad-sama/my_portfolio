@@ -94,13 +94,13 @@ export default function ContactContent() {
               {copied ? "Copied!" : "hamzatabdulsamad34@gmail.com"}
               <FiCopy size={14} className="ml-2 text-[var(--text-color)]/40" />
             </button>
-            <a href="https://github.com/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
+            <a href="https://github.com/Abdulsamad-sama" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
               <FiGithub size={16} /> GitHub
             </a>
-            <a href="https://linkedin.com/in/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
+            <a href="https://www.linkedin.com/in/hamzat-abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
               <FiLinkedin size={16} /> LinkedIn
             </a>
-            <a href="https://twitter.com/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
+            <a href="https://x.com/tomio_sama" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
               <FiTwitter size={16} /> Twitter
             </a>
           </div>

@@ -28,13 +28,13 @@ export default function Footer() {
 
           <div className="flex flex-col gap-3">
             <h4 className="font-semibold text-[var(--text-color)] mb-2 tracking-wide uppercase text-xs">Social</h4>
-            <a href="https://github.com/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--text-color)]/70 hover:text-[var(--text-color)] text-sm transition-colors">
+            <a href="https://github.com/Abdulsamad-sama" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--text-color)]/70 hover:text-[var(--text-color)] text-sm transition-colors">
               <FiGithub size={16} /> GitHub
             </a>
-            <a href="https://linkedin.com/in/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--text-color)]/70 hover:text-[var(--text-color)] text-sm transition-colors">
+            <a href="https://www.linkedin.com/in/hamzat-abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--text-color)]/70 hover:text-[var(--text-color)] text-sm transition-colors">
               <FiLinkedin size={16} /> LinkedIn
             </a>
-            <a href="https://twitter.com/abdulsamad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--text-color)]/70 hover:text-[var(--text-color)] text-sm transition-colors">
+            <a href="https://x.com/tomio_sama" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--text-color)]/70 hover:text-[var(--text-color)] text-sm transition-colors">
               <FiTwitter size={16} /> Twitter
             </a>
           </div>

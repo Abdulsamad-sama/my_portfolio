@@ -15,9 +15,9 @@ const personJsonLd = {
   description:
     "Full-stack developer and AI builder specializing in Next.js, React, Node.js, and Python.",
   sameAs: [
-    "https://github.com/abdulsamad",
-    "https://linkedin.com/in/abdulsamad",
-    "https://twitter.com/abdulsamad",
+    "https://github.com/Abdulsamad-sama",
+    "https://www.linkedin.com/in/hamzat-abdulsamad",
+    "https://x.com/tomio_sama",
   ],
 };
 
@@ -121,7 +121,7 @@ export const metadata = {
     description:
       "Full-stack developer and AI builder specializing in Next.js, React, Node.js, and Python.",
     images: ["/abdulsamad.JPG"],
-    creator: "@abdulsamad",
+    creator: "@tomio_sama",
   },
   robots: {
     index: true,
