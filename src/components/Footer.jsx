@@ -5,10 +5,10 @@ import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-6xl mx-auto py-16 border-t border-[var(--border-color)] mt-24">
+    <footer className="w-full max-w-6xl mx-auto py-16 border-t border-[var(--border-color)] mt-24 px-4 md:px-0">
       <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
         <div className="max-w-xs">
-          <h3 className="text-xl font-bold mb-4" style={{ fontFamily: "var(--font-chillax)" }}>Abdulsamad.</h3>
+          <h3 className="text-xl font-bold mb-4 font-chillax text-[var(--text-color)]">Abdulsamad.</h3>
           <p className="text-[var(--text-color)]/70 text-sm leading-relaxed mb-6">
             A software engineer specializing in building full-stack applications. I enjoy creating seamless user experiences and writing scalable code.
           </p>

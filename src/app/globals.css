@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-dark-bg: #0a0a0a;
-  --color-dark-card: #141414;
-  --color-dark-border: #2a2a2a;
+  --color-dark-card: #171717;
+  --color-dark-border: rgba(255, 255, 255, 0.1);
   
   --color-light-bg: #f9f9f9;
   --color-light-card: #ffffff;
-  --color-light-border: #e5e5e5;
+  --color-light-border: rgba(0, 0, 0, 0.1);
 
-  --font-chillax: "Chillax", sans-serif;
-  --font-lexend: "Lexend", sans-serif;
+  --font-chillax: var(--font-chillax);
+  --font-lexend: var(--font-lexend);
 }
 
 @layer base {
