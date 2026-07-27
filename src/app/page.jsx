@@ -57,11 +57,11 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.2 }} // Wait for preloader
+          transition={{ duration: 0.8, delay: 1.2 }} // Wait for preloader
           className="max-w-5xl flex flex-col items-center"
         >
           <motion.h1
-            className="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 leading-tight font-chillax text-[var(--text-color)]"
+            className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 leading-tight font-chillax text-[var(--text-color)]"
             initial="hidden"
             animate="visible"
             variants={{
@@ -75,26 +75,47 @@ export default function Home() {
               },
             }}
           >
-            {"Hi, I'm Abdulsamad.".split("").map((char, index) => (
-              <motion.span
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    filter: "blur(0px)",
-                    transition: { type: "spring", stiffness: 100, damping: 10 }
-                  },
-                }}
-                style={{ display: "inline-block", whiteSpace: "pre" }}
-              >
-                {char}
-              </motion.span>
-            ))}
+            <span>
+              {"Hi, I'm ".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      filter: "blur(0px)",
+                      transition: { type: "spring", stiffness: 100, damping: 10 }
+                    },
+                  }}
+                  style={{ display: "inline-block", whiteSpace: "pre", }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </span>
+            <span className="block md:inline">
+              {"Abdulsamad.".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      filter: "blur(0px)",
+                      transition: { type: "spring", stiffness: 100, damping: 10 }
+                    },
+                  }}
+                  style={{ display: "inline-block", whiteSpace: "pre", }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </span>
           </motion.h1>
 
-          <motion.h2 
+          <motion.h2
             className="text-2xl md:text-3xl font-bold mb-8 text-[var(--text-color)]/80 font-chillax"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
