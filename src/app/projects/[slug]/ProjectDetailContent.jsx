@@ -39,9 +39,7 @@ export default function ProjectDetailContent({ project }) {
         <div className="col-span-1 md:col-span-2">
           <h3 className="text-4xl font-bold mb-6 font-chillax text-[var(--text-color)]">Overview</h3>
           <p className="text-[var(--text-color)]/70 text-lg leading-relaxed mb-6">
-            This project showcases a deep integration of modern web technologies to create a seamless user experience.
-            It was built with a focus on performance, scalability, and responsive design, ensuring that it works flawlessly
-            across all devices.
+            {project.overview || project.desc}
           </p>
           <div className="flex flex-wrap gap-4 mt-8">
             {project.versions ? (

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiCopy } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail, FiCopy } from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
 import { useState } from "react";
 
 export default function ContactContent() {
@@ -30,8 +31,8 @@ export default function ContactContent() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">First Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
                   placeholder="John"
                   required
@@ -39,8 +40,8 @@ export default function ContactContent() {
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Last Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
                   placeholder="Doe"
                   required
@@ -50,8 +51,8 @@ export default function ContactContent() {
 
             <div className="flex flex-col gap-2">
               <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Email</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
                 placeholder="john@example.com"
                 required
@@ -60,8 +61,8 @@ export default function ContactContent() {
 
             <div className="flex flex-col gap-2">
               <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Subject</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors placeholder:text-[var(--text-color)]/20"
                 placeholder="Project Inquiry"
                 required
@@ -70,15 +71,15 @@ export default function ContactContent() {
 
             <div className="flex flex-col gap-2">
               <label className="text-sm font-semibold tracking-wide uppercase text-[var(--text-color)]/70">Message</label>
-              <textarea 
+              <textarea
                 className="bg-transparent border-b border-[var(--border-color)] py-3 px-2 outline-none focus:border-[var(--text-color)] transition-colors resize-none h-32 placeholder:text-[var(--text-color)]/20 text-lg"
                 placeholder="Tell me about your project..."
                 required
               ></textarea>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="mt-8 px-8 py-5 bg-[var(--text-color)] text-[var(--bg-color)] rounded-[18px] font-semibold text-lg hover:scale-[1.02] transition-transform w-full md:w-auto self-end"
             >
               Send Message
@@ -86,7 +87,7 @@ export default function ContactContent() {
           </form>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <button 
+            <button
               onClick={handleCopy}
               className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium"
             >
@@ -101,7 +102,7 @@ export default function ContactContent() {
               <FiLinkedin size={16} /> LinkedIn
             </a>
             <a href="https://x.com/tomio_sama" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border-color)] hover:bg-[var(--text-color)]/5 transition-colors text-sm font-medium">
-              <FiTwitter size={16} /> Twitter
+              <FaXTwitter size={16} /> X
             </a>
           </div>
         </motion.div>

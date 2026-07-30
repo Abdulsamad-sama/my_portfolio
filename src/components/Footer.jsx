@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -35,7 +36,7 @@ export default function Footer() {
               <FiLinkedin size={16} /> LinkedIn
             </a>
             <a href="https://x.com/tomio_sama" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[var(--text-color)]/70 hover:text-[var(--text-color)] text-sm transition-colors">
-              <FiTwitter size={16} /> Twitter
+              <FaXTwitter size={16} /> X
             </a>
           </div>
         </div>
@@ -45,6 +46,11 @@ export default function Footer() {
         <p className="text-[var(--text-color)]/50 text-xs">
           &copy; {new Date().getFullYear()} Abdulsamad Hamzat. All rights reserved.
         </p>
+        <div className="flex gap-6 mt-4 md:mt-0">
+          <Link href="/privacy-policy" className="text-[var(--text-color)]/50 hover:text-[var(--text-color)] text-xs transition-colors">
+            Privacy & Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );

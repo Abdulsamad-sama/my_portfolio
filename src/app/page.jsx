@@ -21,24 +21,25 @@ const techStack = {
   "Frontend": [
     { name: "React", icon: FiBox },
     { name: "Next.js", icon: FiGlobe },
-    { name: "Tailwind CSS", icon: FiCode },
-    { name: "HTML/CSS", icon: FiCode }
+    { name: "TypeScript", icon: FiCode },
+    { name: "Tailwind CSS", icon: FiCode }
   ],
-  "Mobile": [
+  "Mobile & Desktop": [
     { name: "React Native", icon: FiSmartphone },
-    { name: "Expo", icon: FiSmartphone }
+    { name: "Expo", icon: FiSmartphone },
+    { name: "Electron", icon: FiTerminal }
   ],
   "Backend": [
     { name: "Node.js", icon: FiTerminal },
-    { name: "Express", icon: FiTerminal },
-    { name: "MongoDB", icon: FiDatabase },
-    { name: "Python", icon: FiTerminal }
+    { name: "Python", icon: FiTerminal },
+    { name: "Socket.io", icon: FiGlobe },
+    { name: "MongoDB", icon: FiDatabase }
   ],
-  "Tools & Others": [
+  "Tools & AI": [
     { name: "Git & GitHub", icon: FiTool },
-    { name: "Figma", icon: FiTool },
-    { name: "Agentic AI", icon: FiCpu },
-    { name: "MATLAB", icon: FiBox }
+    { name: "Vite", icon: FiTool },
+    { name: "OpenAI", icon: FiCpu },
+    { name: "Web3 (Solana/Eth)", icon: FiDatabase }
   ]
 };
 
@@ -47,7 +48,7 @@ export default function Home() {
 
   const filteredProjects = filter === "All"
     ? featuredProjects
-    : featuredProjects.filter(p => p.type === filter);
+    : featuredProjects.filter(p => Array.isArray(p.type) ? p.type.includes(filter) : p.type === filter);
 
   return (
     <>
@@ -57,7 +58,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }} // Wait for preloader
+          transition={{ duration: 0.8, delay: 0.5 }}
           className="max-w-5xl flex flex-col items-center"
         >
           <motion.h1
@@ -144,7 +145,7 @@ export default function Home() {
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-5xl font-extrabold mb-8 font-chillax text-[var(--text-color)]">All Projects.</h2>
           <div className="flex items-center gap-2 p-1 bg-[var(--border-color)]/30 rounded-full border border-[var(--border-color)]">
-            {["All", "Web", "Mobile"].map(f => (
+            {["All", "Web", "Desktop", "AI-Powered"].map(f => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
@@ -160,7 +161,8 @@ export default function Home() {
           {/* We will render full width cards and grid cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {filteredProjects.map((project, idx) => {
-              if (project.fullWidth) {
+              const isFullWidth = idx % 3 === 0;
+              if (isFullWidth) {
                 return (
                   <Link href={`/projects/${project.slug}`} key={project.name} className="col-span-1 md:col-span-2 group">
                     <motion.div
@@ -181,7 +183,7 @@ export default function Home() {
                       </div>
                       <div className="w-full md:w-2/5 flex flex-col justify-center p-4">
                         <div className="flex items-center gap-2 mb-4">
-                          <span className="text-xs tracking-widest uppercase font-bold text-[var(--text-color)]/50">{project.type} APP</span>
+                          <span className="text-xs tracking-widest uppercase font-bold text-[var(--text-color)]/50">{Array.isArray(project.type) ? project.type.join(" • ") : project.type}</span>
                         </div>
                         <h3 className="text-4xl font-extrabold mb-4 font-chillax text-[var(--text-color)]">{project.name}</h3>
                         <p className="text-[var(--text-color)]/70 mb-8 text-lg leading-relaxed">{project.desc}</p>
